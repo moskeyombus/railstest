@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   end
   def vote
+    notice = "Thanks for voting"
   	case params[:type]
   	when "1"
   		value = 1;
@@ -21,7 +22,11 @@ class UsersController < ApplicationController
   	else
   	end	
   	@user = User.find(params[:id])
-  	@user.add_evaluation(:votes, value, current_user)
-  	redirect_to :back, notice: "Thanks for voting"
+    begin
+  	   @user.add_evaluation(:votes, value, current_user)
+  	rescue ActiveRecord::RecordInvalid
+        notice = "You have already voted"
+    end
+    redirect_to :back, notice: notice
   end
 end
