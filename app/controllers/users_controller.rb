@@ -13,25 +13,11 @@ class UsersController < ApplicationController
   def vote
     notice = "Thanks for voting"
     @user = User.find(params[:id])
-    #handle user voting for self
-    #if @user == current_user, skip add_evaluation and update notice
+
   	if @user.id == current_user.id
       notice = "You cannot vote for yourself"
     else
-      case params[:type]
-      	when "1"
-      		value = 1;
-      	when "2"
-      		value = 2;
-      	when "3"
-      		value = 3;
-      	when "4"
-      		value = 4;
-      	when "5"
-      		value = 5;
-      	else
-    	end	
-
+      value = params[:type]
       begin
     	   @user.add_evaluation(:votes, value, current_user)
     	rescue ActiveRecord::RecordInvalid
