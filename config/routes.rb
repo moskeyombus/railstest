@@ -1,12 +1,17 @@
 Railstest::Application.routes.draw do
   get "users/show"
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"} 
+  resources  :users, :only => [:vote] do
+    member { post :vote }
+  end
+
   resources :products do
     resources :images
   end
-  resources :user_votes do
-    member { post :vote }
-  end
+
+  #resources :users do
+  #  member { post :vote }
+  #end
 
 
 
