@@ -16,32 +16,10 @@
 </p>
 
 <h2>Images</h2>
-<% @product.images.each do |image| %>
-  <p>
-    <strong>Title:</strong>
-    <%= image.title %>
-  </p>
- 
-  <p>
-    <strong>Location:</strong>
-    <%= image.location %>
-  </p>
-<% end %>
+<%= render @product.images  %>
 
 <h2>Add an image:</h2>
-<%= form_for([@product, @product.images.build]) do |f| %>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render "images/form" %>
 
 
 
