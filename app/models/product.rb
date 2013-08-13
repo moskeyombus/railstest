@@ -1,8 +1,6 @@
 class Product < ActiveRecord::Base
 	attr_accessor :name, :description, :price
-	def initialize name, description, price
-		@name = name
-		@description = description
-		@price = price
-	end
+
+	validates :name, :presence => true, :uniqueness => true
+	validates :price, :presence => true
 end
