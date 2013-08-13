@@ -4,8 +4,10 @@
 </p>
 
 <%= image_tag image.file.url %>
-<p>
-  <%= link_to 'Destroy Image', [image.product, image],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+<% if user_signed_in? %>
+	<p>
+	  <%= link_to 'Destroy Image', [image.product, image],
+	               method: :delete,
+	               data: { confirm: 'Are you sure?' } %>
+	</p>
+<% end %>
