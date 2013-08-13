@@ -46,6 +46,8 @@ end
 
 gem 'devise'
 
+gem "paperclip", "~> 3.0"
+
 gem 'rspec-rails', :group => [:test, :development]
 group :test do
 	gem 'factory_girl_rails'

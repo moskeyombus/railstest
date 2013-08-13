@@ -25,7 +25,7 @@ describe Product do
 	describe "#price" do
 		it "returns the correct price" do
 			product = create(:product)
-			product.price.should eql "0.00"
+			product.price.should eql 0.00
 		end
 	end
 
