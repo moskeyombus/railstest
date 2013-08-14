@@ -3,6 +3,7 @@
 <%= @user.last_name %>
 <%= @user.email %>
 <br>
+<p>Current user score: <%= @user.reputation_for(:votes) %></p>
 <p>Vote for this user: 
 <%= link_to "1", vote_user_path(@user, type: "1"), method: "post" %> | 
 <%= link_to "2", vote_user_path(@user, type: "2"), method: "post" %> | 
