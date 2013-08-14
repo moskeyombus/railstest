@@ -26,6 +26,7 @@ Railstest::Application.routes.draw do
   get '/users/:id' => 'users#show', :as => :user
   get '/users/' => 'users#index', :as => :users
   get '/my_products/' => 'products#user_index', :as => :user_products
+  get '/my_products/:id' => 'products#user_show', :as => :user_product
   
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

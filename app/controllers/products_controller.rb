@@ -18,6 +18,10 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def user_show
+    @product = Product.find(params[:id])
+  end
+
   # GET /products/new
   def new
     @product = Product.new
@@ -25,6 +29,8 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @product = Product.find(params[:id])
+    #add redirect if product doesn't belong to current user
   end
 
   # POST /products
@@ -35,7 +41,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to user_product_path(@product), notice: 'Product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product }
       else
         format.html { render action: 'new' }
@@ -63,7 +69,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url }
+      format.html { redirect_to user_products_url }
       format.json { head :no_content }
     end
   end
