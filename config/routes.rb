@@ -1,9 +1,19 @@
 Railstest::Application.routes.draw do
   get "users/show"
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"} 
+  resources  :users, :only => [:vote] do
+    member { post :vote }
+  end
+
   resources :products do
     resources :images
   end
+
+  #resources :users do
+  #  member { post :vote }
+  #end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

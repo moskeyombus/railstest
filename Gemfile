@@ -52,3 +52,5 @@ gem 'rspec-rails', :group => [:test, :development]
 group :test do
 	gem 'factory_girl_rails'
 end
+
+gem 'activerecord-reputation-system', github: 'NARKOZ/activerecord-reputation-system', branch: 'rails4'
