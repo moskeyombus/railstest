@@ -1,17 +1,18 @@
 Railstest::Application.routes.draw do
   get "users/show"
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"} 
+  
   resources  :users, :only => [:vote] do
     member { post :vote }
   end
 
+  #resources :users, :only => [:products] do
+  #  resources :products
+  #end
+
   resources :products do
     resources :images
   end
-
-  #resources :users do
-  #  member { post :vote }
-  #end
 
 
 
@@ -23,7 +24,8 @@ Railstest::Application.routes.draw do
  
   # Example of regular route:
   get '/users/:id' => 'users#show', :as => :user
-  get '/users/' => 'users#index'
+  get '/users/' => 'users#index', :as => :users
+  get '/users/:id/products' => 'products#user_index', :as => :user_products
   
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

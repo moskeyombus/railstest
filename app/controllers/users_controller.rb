@@ -10,6 +10,10 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   end
 
+  def products
+    @products = User.products
+  end
+
   def vote
     notice = "Thanks for voting"
     @user = User.find(params[:id])

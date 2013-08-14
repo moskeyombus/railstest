@@ -8,6 +8,11 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def user_index
+    @user = User.find(current_user.id)
+    @products = @user.products
+  end
+
   # GET /products/1
   # GET /products/1.json
   def show
