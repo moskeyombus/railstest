@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   	if @user.id == current_user.id
       notice = "You cannot vote for yourself"
     else
-      value = params[:type]
+      value = params[:type].to_i
       begin
     	   @user.add_evaluation(:votes, value, current_user)
     	rescue ActiveRecord::RecordInvalid
