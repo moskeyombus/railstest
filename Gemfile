@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+# mailboxer for user messaging
+gem 'mailboxer', '0.9.0'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -44,13 +48,17 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# devise for user auth
 gem 'devise'
 
+# paperclip for image uploads
 gem "paperclip", "~> 3.0"
 
+# rspec/factory_girl for unit testing
 gem 'rspec-rails', :group => [:test, :development]
 group :test do
 	gem 'factory_girl_rails'
 end
 
+# used for user ratings
 gem 'activerecord-reputation-system', github: 'NARKOZ/activerecord-reputation-system', branch: 'rails4'
